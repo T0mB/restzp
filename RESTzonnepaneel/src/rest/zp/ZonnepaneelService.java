@@ -22,9 +22,12 @@ import org.json.JSONObject;
 @Path("/ZonnepaneelService")
 public class ZonnepaneelService {
 
+	//maakt een zonnepaneel aan dmv 2 parameters, code en postcode, hij checkt of de postcode klopt volgens het nederlandse format.
+	//checkt daarna of er al een file bestaat, zo niet wordt er een nieuwe file gemaakt en wordt het zonnepaneel daar aan toegevoegd
+	//bestaat de file al wel wordt het in het bestaande bestand opgeslagen dmv de methode saveZpList();
 	@Path("/create/{code}/{postcode}")
 	@GET
-	@Produces("application/json")
+	@Produces("application/json")	
 	public Response createZP(@PathParam("code") int code,
 			@PathParam("postcode") String postcode) throws JSONException {
 
